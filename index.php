@@ -1,19 +1,21 @@
 <?php
 
-	// Attention ce programme ne fonctionne qu'avec une solution
-
-	$inital_array = array(1,3,96,4,57,67);
+	$inital_array = array(1,3,96,4,57,67, 50, 50);
 	$k = 100; // for 96 + 4
 
-	$other_array = [];
+	$a = null;
+	$b = null;
 	foreach($inital_array as $value){
-		$other_array[] = $k - $value;
+		$diff = $k - $value;
+		if( in_array($diff, $inital_array) ){
+			if( $a == null ){
+				$a = $diff;
+			}
+			elseif( $diff + $a == $k ){
+				$b = $diff;
+			}
+		}
 	}
-
-	$other_array = array_intersect($inital_array, $other_array);
-
-	$a = current($other_array);
-	$b = end($other_array);
 
 	echo "$a + $b = $k";
 
