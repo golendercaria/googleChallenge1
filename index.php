@@ -13,6 +13,7 @@
 			}
 			elseif( $diff + $a == $k ){
 				$b = $diff;
+				break;
 			}
 		}
 	}
